@@ -9,8 +9,6 @@
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
-
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
