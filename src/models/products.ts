@@ -6,10 +6,22 @@ import P_5 from "@/assets/P_5.webp";
 import P_6 from "@/assets/P_6.webp";
 import P_7 from "@/assets/P_7.webp";
 
+import P_AB_1 from "@/assets/P_AB_1.webp";
+import P_AB_2 from "@/assets/P_AB_2.webp";
+import P_AB_3 from "@/assets/P_AB_3.webp";
+import P_AB_4 from "@/assets/P_AB_4.webp";
+
 export type ProductSlide = {
   url: string;
   caption: string;
 };
+
+export const aboutUsImages = [
+  { url: P_AB_1, alt: "About Us Image 1" },
+  { url: P_AB_2, alt: "About Us Image 2" },
+  { url: P_AB_3, alt: "Latitud 58 Team" },
+  { url: P_AB_4, alt: "About us Image 4" },
+];
 
 export const products = [
   { url: P_1, caption: "Gourmet Sandwich with Golden Fries" },

@@ -9,6 +9,15 @@ export function Home() {
 
   const currentSlide: ProductSlide = products[currentIndex];
 
+  useEffect(() => {
+    products.forEach((slide) => {
+      if (slide.url) {
+        const img = new Image();
+        img.src = slide.url;
+      }
+    });
+  }, []);
+
   const prevSlide = useCallback(() => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? products.length - 1 : currentIndex - 1;
@@ -30,7 +39,9 @@ export function Home() {
   return (
     <div className="h-screen w-full relative group overflow-hidden">
       <div
-        style={{ backgroundImage: `url(${currentSlide.url})` }}
+        style={{
+          backgroundImage: `url(${currentSlide.url})`,
+        }}
         className="w-full h-full bg-center bg-cover duration-700 ease-in-out transition-opacity"
       >
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-8">
