@@ -137,7 +137,7 @@ export function FoodMenu() {
       section: [
         {
           name: "Peluda",
-          description: ": Shredded beef and yellow cheese",
+          description: "Shredded beef and yellow cheese",
           image: products[0].url,
         },
         {
@@ -230,11 +230,11 @@ export function FoodMenu() {
             </div>
             <div className="grid md:grid-cols-2 gap-y-3 my-10 justify-items-center">
               {menu[selectedSection].section.map((item, idx) => (
-                <div className="w-full grid md:grid-cols-3 items-center " key={idx}>
+                <div className="w-full grid grid-cols-1 md:grid-cols-3 items-center" key={idx}>
                   <div className="border rounded-full overflow-hidden h-38 w-38 mx-auto">
                     <img src={item.image} alt={item.name} />
                   </div>
-                  <section className="col-span-2 prose text-sm/6">
+                  <section className="col-span-2 prose text-sm/6 text-center md:text-left mx-auto">
                     <h1 className="text-secondary">{item.name}</h1>
                     <p>{item.description}</p>
                   </section>
