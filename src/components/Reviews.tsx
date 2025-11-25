@@ -16,22 +16,21 @@ interface Review {
   comment: string;
   date: string;
 }
-
 const sampleReviews: Review[] = [
   {
     id: 1,
     author: "Emily K.",
     rating: 5,
     comment:
-      "The BBQ Ribs were phenomenal! Tender, smoky, and the sauce was perfect. Fast service, great atmosphere. Definitely coming back for the grill!",
+      "The Parrilla was phenomenal! Juicy grilled steak and chicken, delicious chorizo, and that touch of chimichurri was perfect. Fast service, great flavor. Definitely coming back for this Venezuelan grill!",
     date: "2025",
   },
   {
     id: 2,
     author: "Mark J.",
-    rating: 4,
+    rating: 5,
     comment:
-      "Tried the classic cheeseburger. It was juicy and cooked just right. Giving 4 stars because the wait for the table was a bit long, but the food made up for it.",
+      "I tried the SUPER MIXTA Burger and it was HUGE! Grilled chicken, beef, pork chop, egg... a true feast. Juicy and cooked just right. It’s the best street-style burger I’ve had.",
     date: "2025",
   },
   {
@@ -39,7 +38,7 @@ const sampleReviews: Review[] = [
     author: "Sarah P.",
     rating: 5,
     comment:
-      "Amazing pizza! The crust was crispy and the ingredients were fresh. They have the best pepperoni in town. Fantastic experience from ordering to delivery!",
+      "The Reina Pepiada Arepa is incredible! Perfectly toasted, and the chicken/avocado filling was fresh and creamy. A little taste of Venezuela! Fantastic comfort food experience.",
     date: "2025",
   },
   {
@@ -47,7 +46,7 @@ const sampleReviews: Review[] = [
     author: "David L.",
     rating: 5,
     comment:
-      "Best smash burger I’ve had all year! Perfectly seasoned and melted cheese. My new go-to place for casual dinner. Highly recommend!",
+      "The Lomito Shawarma was awesome! Tender grilled steak, fresh veggies, and the garlic sauce brings it all together. Quick, satisfying, and very authentic. Highly recommend!",
     date: "2025",
   },
   {
@@ -55,7 +54,7 @@ const sampleReviews: Review[] = [
     author: "Jessica R.",
     rating: 4,
     comment:
-      "Very satisfied with the food quality. The steak was great! My only suggestion would be to offer a few more side dish options. Great value for the price.",
+      "Very satisfied with the food quality. The CAMPESINA Pizza was great! Love the mix of shredded meat, corn, and bell pepper. My only suggestion would be to offer a few more drink options. Great value for the price.",
     date: "2025",
   },
 ];

@@ -20,8 +20,8 @@ export function Order() {
       <div className="relative z-10 py-38 text-center text-gray-800">
         <h1 className="text-4xl font-bold">Ready to order?</h1>
         <h2 className="text-xl mt-2">Join us and take your order today!</h2>
-        <Button asChild>
-          <DialogTrigger className="mt-5 px-6 py-3 bg-fourthary text-tertiary rounded-full hover:bg-fourthary/90 transition-colors">
+        <Button asChild className="text-4xl cursor-pointer">
+          <DialogTrigger className="text-tertiary mt-5 px-16 py-10 bg-fourthary rounded-full hover:bg-fourthary/90 transition-colors">
             ORDER
           </DialogTrigger>
         </Button>

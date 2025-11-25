@@ -3,7 +3,6 @@ import Logo from "@/logo.png";
 import { useEffect } from "react";
 
 export function AboutUs() {
-
   useEffect(() => {
     aboutUsImages.forEach((image) => {
       if (image.url) {
@@ -33,12 +32,16 @@ export function AboutUs() {
                 <img src={Logo} className="w-32" />
               </div>
               <h1 className="text-secondary mb-0">About us</h1>
-              <h2 className="text-tertiary">about us subtitle</h2>
+              <h2 className="text-tertiary">
+                Venezuelan Flavor with Gourmet Passion
+              </h2>
               <p>
-                Quibusdam ipsa, illo iste tenetur maxime doloremque! Officia
-                iure hic error fugit, voluptatibus vero, quae laboriosam
-                adipisci libero amet omnis veritatis laborum recusandae
-                voluptate mollitia quia cum. Reiciendis, sed officiis.
+                At Latitud58, we bring the authentic flavors of Venezuela to
+                every dish we serve. From handcrafted burgers to traditional
+                arepas and gourmet-style grilled plates, our food is prepared
+                with passion, fresh ingredients, and the unmistakable touch of
+                our chef. We combine fast-casual convenience with a warm,
+                homemade taste that makes every visit unforgettable.
               </p>
             </div>
           </div>
@@ -54,13 +57,19 @@ export function AboutUs() {
           {/* section 2 */}
           <div className="flex justify-center items-center">
             <div className="flex flex-col justify-center items-center w-full prose text-center">
-              <h1 className="text-secondary mb-0">Title 1</h1>
-              <h2 className="text-tertiary">sub-title </h2>
+              <h1 className="text-secondary mb-0">Our Concept</h1>
+              <h2 className="text-tertiary">
+                Arepas, Hamburgers and More: Signature Comfort Food
+              </h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Nesciunt reiciendis modi aut accusamus id aspernatur adipisci,
-                enim nostrum in, animi quos ad, beatae natus expedita eos non
-                nam. Earum, eaque?
+                A modern Venezuelan food truck offering artisan comfort food
+                made fresh daily. We focus on quality, creativity, and generous
+                portions blending traditional flavors with a gourmet twist.
+              </p>
+              <p>
+                Whether you’re craving a juicy burger, a perfectly toasted
+                arepa, or a flavorful chaguarma, we’ve got something that will
+                make you fall in love from the first bite.
               </p>
             </div>
           </div>

@@ -54,6 +54,26 @@ export function Contact({
         </div>
       </div>
       <div className="my-10">
+        <blockquote
+          className="tiktok-embed"
+          cite="https://www.tiktok.com/@latitud58"
+          data-unique-id="latitud58"
+          data-embed-type="creator"
+          style={{
+            maxWidth: "780px",
+            minWidth: "288px",
+          }}
+        >
+          <section>
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@latitud58?refer=creator_embed"
+            >
+              @latitud58
+            </a>
+          </section>
+          <script async src="https://www.tiktok.com/embed.js"></script>
+        </blockquote>
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3347.0300115304253!2d-80.0034325!3d32.97661!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88fe672fe7eee555%3A0xc21b0ee6b61baf24!2sLATITUD%2058!5e0!3m2!1ses!2sve!4v1763792632615!5m2!1ses!2sve"
           loading="lazy"

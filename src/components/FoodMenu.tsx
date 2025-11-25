@@ -1,5 +1,5 @@
 import type { MenuSection } from "@/types/menu";
-import { products } from "@/models/products";
+import { menuProducts } from "@/models/products";
 import { useState } from "react";
 
 export function FoodMenu() {
@@ -11,45 +11,45 @@ export function FoodMenu() {
       section: [
         {
           name: "SINGLE CROQUETA",
-          description: 
+          description:
             "Double croqueta de carne, American cheese, lettuce, tomato, caramelized onion, ham, pickles, accompanied by french fries",
-          image: products[0].url,
+          image: menuProducts.burgers.single_croqueta.img,
         },
         {
           name: "DOUBLE CROQUETA",
           description:
             "Double croqueta de carne, American cheese, lettuce, tomato, caramelized onion, ham, pickles, accompanied by french fries",
-          image: products[0].url,
+          image: menuProducts.burgers.double_croqueta.img,
         },
         {
           name: "MECHADA",
           description:
             "Carne mechada, fried egg, bacon, ham, cheese, lettuce, tomato, onion accompanied by french fries.",
-          image: products[0].url,
+          image: menuProducts.burgers.mechada.img,
         },
         {
           name: "CHICKEN",
           description:
             "Grilled chicken, fried egg, ham, cheese, bacon, lettuce, tomato, onion accompanied by french fries.",
-          image: products[0].url,
+          image: menuProducts.burgers.chiken.img,
         },
         {
           name: "LOMITO",
           description:
             "Beef, bacon, grilled fresh cheese, pickles, lettuce, tomato, red onion accompanied by french fries.",
-          image: products[0].url,
+          image: menuProducts.burgers.lomito.img,
         },
         {
           name: "CHULETA",
           description:
             "Smoked pork chop, coleslaw, grilled pineapple, cheddar cheese, served with french fries.",
-          image: products[0].url,
+          image: menuProducts.burgers.chuleta.img,
         },
         {
           name: "SUPER MIXTA",
           description:
             "Grilled chicken, beef, pork chop, ham, cheese, fried egg, bacon, lettuce, tomato, onion, accompanied by french fries.",
-          image: products[0].url,
+          image: menuProducts.burgers.super_mixta.img,
         },
       ],
     },
@@ -60,41 +60,41 @@ export function FoodMenu() {
           name: "4 CHEESES",
           description:
             "Napolitan sauce, Mozzarella cheese, Parmesan, Cheddar, Provolone and garlic butter.",
-          image: products[0].url,
+          image: menuProducts.pizzas.four_chesse.img,
         },
         {
           name: "HAWAIANA",
           description:
             "Napolitan sauce, mozzarella cheese, pineapple and ham. ",
-          image: products[0].url,
+          image: menuProducts.pizzas.hawaiana.img,
         },
         {
           name: "CHICKEN",
           description: "Napolitan sauce, mozzarella cheese, chicken and ham.",
-          image: products[0].url,
+          image: menuProducts.pizzas.chiken.img,
         },
         {
           name: "SAVONA",
           description:
             "Napolitan sauce, bacon, mozzarella cheese, chicken, corn, paprika and ham.",
-          image: products[0].url,
+          image: menuProducts.pizzas.savona.img,
         },
         {
           name: "CAMPESINA",
           description:
             "Napolitan sauce, mozzarella cheese, shredded meat, bell pepper, onion, ham and corn. ",
-          image: products[0].url,
+          image: menuProducts.pizzas.campesina.img,
         },
         {
           name: "ITALIANA",
           description:
             "Napolitan sauce, mozzarella cheese, smoked ham, pesto, arugula and parmesan cheese. ",
-          image: products[0].url,
+          image: menuProducts.pizzas.italiana.img,
         },
         {
           name: "BOCADILLO",
           description: "Napolitan sauce, cheese and bocadillo.",
-          image: products[0].url,
+          image: menuProducts.pizzas.bocadillo.img,
         },
       ],
     },
@@ -105,19 +105,19 @@ export function FoodMenu() {
           name: "CHICKEN",
           description:
             "Grilled chicken, lettuce, tomato, onion, parsley, garlic sauce.",
-          image: products[0].url,
+          image: menuProducts.shawarmas.chiken.img,
         },
         {
           name: "LOMITO",
           description:
             ": Grilled steak, lettuce, tomato, onion, parsley, garlic sauce. ",
-          image: products[0].url,
+          image: menuProducts.shawarmas.lomito.img,
         },
         {
           name: "MIXTO",
           description:
             "Chicken and steak, lettuce, tomato, onion, parsley, garlic sauce.",
-          image: products[0].url,
+          image: menuProducts.shawarmas.mixto.img,
         },
       ],
     },
@@ -128,7 +128,7 @@ export function FoodMenu() {
           name: "Parrilla",
           description:
             "150gr Grilled Steak 150gr Grilled Chicken Chorizo Chicken Sausage French Fries Salad with a touch of chimichurri",
-          image: products[0].url,
+          image: menuProducts.parrillas.parrilla.img,
         },
       ],
     },
@@ -138,32 +138,32 @@ export function FoodMenu() {
         {
           name: "Peluda",
           description: "Shredded beef and yellow cheese",
-          image: products[0].url,
+          image: menuProducts.arepas.peluda.img,
         },
         {
           name: "Lomito",
           description: "Grilled steak",
-          image: products[0].url,
+          image: menuProducts.arepas.lomito.img,
         },
         {
           name: "Pollo",
           description: "Grilled chicken",
-          image: products[0].url,
+          image: menuProducts.arepas.pollo.img,
         },
         {
           name: "Mixta",
           description: "Grilled steak and chicken",
-          image: products[0].url,
+          image: menuProducts.arepas.mixta.img,
         },
         {
           name: "Reina Pepiada",
           description: "Shredded chicken, avocado, onion, and cilantro",
-          image: products[0].url,
+          image: menuProducts.arepas.reina_pepiada.img,
         },
         {
           name: "Huevona",
           description: "with Quail egg",
-          image: products[0].url,
+          image: menuProducts.arepas.huevona.img,
         },
       ],
     },
@@ -174,7 +174,7 @@ export function FoodMenu() {
           name: "Club House",
           description:
             "Sandwich bread, Shredded chicken, Shredded beef, Lettuce, Tomato, Cheese, Ham, French fries.",
-          image: products[0].url,
+          image: menuProducts.club_houses.club_house.img,
         },
       ],
     },
@@ -228,13 +228,16 @@ export function FoodMenu() {
                 );
               })}
             </div>
-            <div className="grid md:grid-cols-2 gap-y-3 my-10 justify-items-center">
+            <div className="grid md:grid-cols-2 gap-y-3 my-10">
               {menu[selectedSection].section.map((item, idx) => (
-                <div className="w-full grid grid-cols-1 md:grid-cols-3 items-center" key={idx}>
-                  <div className="border rounded-full overflow-hidden h-38 w-38 mx-auto">
-                    <img src={item.image} alt={item.name} />
+                <div
+                  className="w-full grid grid-cols-1 md:grid-cols-3"
+                  key={idx}
+                >
+                  <div className="border rounded-full overflow-hidden mx-auto">
+                    <img src={item.image} alt={item.name} className="w-56 md:w-full" />
                   </div>
-                  <section className="col-span-2 prose text-sm/6 text-center md:text-left mx-auto">
+                  <section className="col-span-2 prose text-sm/6 text-center md:text-left mx-10">
                     <h1 className="text-secondary">{item.name}</h1>
                     <p>{item.description}</p>
                   </section>
