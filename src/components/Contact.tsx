@@ -15,13 +15,13 @@ export function Contact({
     <div id="contact" className="flex flex-col mx-[5%] md:mx-[10%] ">
       <div className="grid grid-cols-1 md:grid-cols-4 my-5">
         <h1 className="text-5xl text-tertiary">
-          Find us in <b className="text-fourthary">Charleston</b>
+          Find us in <b className="text-white">Charleston</b>
         </h1>
         <div className="my-5">
           <h2 className="hidden md:flex text-3xl text-tertiary text-nowrap">
             LOCATION
           </h2>
-          <div className="grid grid-cols-4 h-full my-5">
+          <div className="grid grid-cols-4 h-full my-5 text-white">
             <FaMapMarkerAlt size={24} />
             <span className="col-span-3 mx-2">
               7130 HENRY E. BROWN, IR. ELVD. GOOSE
@@ -36,7 +36,7 @@ export function Contact({
           <h2 className="text-3xl text-tertiary text-nowrap">
             MORE INFORMATION
           </h2>
-          <div className="grid grid-cols-4 h-full my-5">
+          <div className="grid grid-cols-4 h-full my-5 text-white">
             <IoIosChatboxes size={24} />
             <span className="col-span-3 mx-2">854-200-8599</span>
             <CiMail size={24} />
