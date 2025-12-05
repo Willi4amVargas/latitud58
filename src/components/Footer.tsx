@@ -38,7 +38,10 @@ export function Footer() {
               >
                 <FaTiktok />
               </a>
-              <a target="_blank" href="https://wa.me/19543940197">
+              <a
+                target="_blank"
+                href="https://wa.me/18542008599?text=Hello!%20I%20am%20ready%20to%20place%20an%20order."
+              >
                 <FaWhatsapp />
               </a>
             </div>

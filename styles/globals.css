@@ -13,7 +13,6 @@ body::-webkit-scrollbar {
 body {
   -ms-overflow-style: none;
   scrollbar-width: none;
-  background-color: rgba(0, 0, 0, 0.98);
 }
 
 :root {

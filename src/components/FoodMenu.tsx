@@ -187,7 +187,7 @@ export function FoodMenu() {
             <div className="w-full prose text-center">
               <h1 className="text-secondary mb-0">Our Menu</h1>
               <h2 className="text-tertiary">Delicious food for you</h2>
-              <p className="text-white">
+              <p className="">
                 Explore our diverse menu featuring a variety of delicious dishes
                 crafted to satisfy every palate. From appetizers to desserts,
                 there's something for everyone to enjoy.
@@ -199,22 +199,22 @@ export function FoodMenu() {
               {menu.map((menuSection, index) => {
                 if (menu.length - 1 === index) {
                   return (
-                    <div className="md:col-span-5 text-white" key={index}>
+                    <div className="md:col-span-5 " key={index}>
                       <div className="group relative inline-block cursor-pointer">
                         <button
                           onClick={() => setSelectedSection(index)}
                           className={
                             selectedSection === index
-                              ? `text-tertiary`
-                              : " cursor-pointer transition-colors duration-300 group-hover:text-tertiary"
+                              ? `transition-colors duration-300 text-tertiary`
+                              : "cursor-pointer transition-colors duration-300 group-hover:text-tertiary"
                           }
                         >
-                          <i>{menuSection.description}</i>
+                          <i className="text-xl">{menuSection.description}</i>
                         </button>
                         <span
                           className={
                             selectedSection === index
-                              ? `text-tertiary`
+                              ? `absolute bottom-0 left-0 w-full h-0.5 bg-fourthary origin-left transform transition-transform duration-300 scale-x-100 text-tertiary`
                               : "absolute bottom-0 left-0 w-full h-0.5 bg-fourthary origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
                           }
                         ></span>
@@ -224,22 +224,22 @@ export function FoodMenu() {
                 }
 
                 return (
-                  <div className="col-span-1 text-white" key={index}>
+                  <div className="col-span-1 " key={index}>
                     <div className="group relative inline-block cursor-pointer">
                       <button
                         onClick={() => setSelectedSection(index)}
                         className={
                           selectedSection === index
-                            ? "text-tertiary"
+                            ? "transition-colors duration-300 text-tertiary"
                             : "cursor-pointer transition-colors duration-300 group-hover:text-tertiary"
                         }
                       >
-                        <i>{menuSection.description}</i>
+                        <i className="text-xl">{menuSection.description}</i>
                       </button>
                       <span
                         className={
                           selectedSection === index
-                            ? "text-tertiary "
+                            ? "absolute bottom-0 left-0 w-full h-0.5 bg-fourthary origin-left transform transition-transform duration-300 scale-x-100 text-tertiary "
                             : "absolute bottom-0 left-0 w-full h-0.5 bg-fourthary origin-left transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"
                         }
                       ></span>
@@ -263,7 +263,7 @@ export function FoodMenu() {
                   </div>
                   <section className="col-span-2 prose text-sm/6 text-center md:text-left mx-10">
                     <h1 className="text-secondary">{item.name}</h1>
-                    <p className="text-white">{item.description}</p>
+                    <p className="">{item.description}</p>
                   </section>
                 </div>
               ))}

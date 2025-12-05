@@ -35,7 +35,7 @@ export function AboutUs() {
               <h2 className="text-tertiary">
                 Venezuelan Flavor with Gourmet Passion
               </h2>
-              <p className="text-white">
+              <p>
                 At Latitud58, we bring the authentic flavors of Venezuela to
                 every dish we serve. From handcrafted burgers to traditional
                 arepas and gourmet-style grilled plates, our food is prepared
@@ -61,12 +61,12 @@ export function AboutUs() {
               <h2 className="text-tertiary">
                 Arepas, Hamburgers and More: Signature Comfort Food
               </h2>
-              <p className="text-white">
+              <p className="">
                 A modern Venezuelan food truck offering artisan comfort food
                 made fresh daily. We focus on quality, creativity, and generous
                 portions blending traditional flavors with a gourmet twist.
               </p>
-              <p className="text-white">
+              <p className="">
                 Whether you’re craving a juicy burger, a perfectly toasted
                 arepa, or a flavorful chaguarma, we’ve got something that will
                 make you fall in love from the first bite.
@@ -86,7 +86,7 @@ export function AboutUs() {
             <img
               src={aboutUsImages[3].url}
               alt={aboutUsImages[3].alt}
-              className="w-full md:w-[50%] mx-auto my-5"
+              className="w-full md:w-[50%] border rounded-xl border-black mx-auto my-5"
             />
           </div>
         </div>

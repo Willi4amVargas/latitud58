@@ -4,7 +4,7 @@ import P_3 from "@/assets/P_3.webp";
 import P_4 from "@/assets/P_4.webp";
 import P_5 from "@/assets/P_5.webp";
 import P_6 from "@/assets/P_6.webp";
-import P_7 from "@/assets/P_7.webp";
+import P_7 from "@/assets/P_7.jpg";
 
 import P_AB_1 from "@/assets/P_AB_1.webp";
 import P_AB_2 from "@/assets/P_AB_2.webp";
@@ -30,7 +30,7 @@ export const products = [
   { url: P_4, caption: "Delicious Signature Pizza" },
   { url: P_5, caption: "Freshly Baked Specialty Pizza" },
   { url: P_6, caption: "Assortment of Mini Club Houses with Fries" },
-  { url: P_7, caption: "Hearty Club House and Fries" },
+  { url: P_7, caption: "Authentic Beef and Chicken Shawarma Wrap" },
 ];
 
 // BURGERS
