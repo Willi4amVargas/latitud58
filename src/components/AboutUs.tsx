@@ -82,13 +82,13 @@ export function AboutUs() {
             />
           </div>
           {/* image alone row */}
-          <div className="md:col-span-2">
+          {/* <div className="md:col-span-2">
             <img
               src={aboutUsImages[3].url}
               alt={aboutUsImages[3].alt}
               className="w-full md:w-[50%] border rounded-xl border-black mx-auto my-5"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </>

@@ -7,7 +7,8 @@ export function FoodMenu() {
 
   const menu: MenuSection[] = [
     {
-      description: "Burger",
+      title: "Burger",
+      description: "Crafted with homemade buns, juicy premium meats, and fresh ingredients, our artisan burgers blend Venezuelan flavor with gourmet techniques. Each burger includes unique house-made sauces and toppings that turn every bite into a memorable experience.",
       section: [
         {
           name: "SINGLE CROQUETA",
@@ -54,7 +55,8 @@ export function FoodMenu() {
       ],
     },
     {
-      description: "Pizza",
+      title: "Pizza",
+      description: "Prepared with fresh, hand-stretched dough and premium cheeses, our pizzas offer a perfect balance of traditional recipes and creative flavor combinations. Baked to a golden crisp, each pizza reflects the warmth of Venezuelan comfort food with a modern twist.",
       section: [
         {
           name: "4 CHEESES",
@@ -99,7 +101,8 @@ export function FoodMenu() {
       ],
     },
     {
-      description: "Shawarma",
+      title: "Shawarma",
+      description: "Inspired by Venezuelan street food, our chaguarmas are loaded with marinated meats, fresh veggies, and house-made sauces. Wrapped tightly for the perfect bite every time — flavorful, juicy, and unforgettable.",
       section: [
         {
           name: "CHICKEN",
@@ -122,7 +125,8 @@ export function FoodMenu() {
       ],
     },
     {
-      description: "Parrilla",
+      title: "Parrilla",
+      description: "Our parrillas feature perfectly seasoned meats grilled to tender perfection. Served with fresh sides and prepared Venezuelan-style, they offer bold, smoky flavors that satisfy every craving.",
       section: [
         {
           name: "Parrilla",
@@ -133,7 +137,8 @@ export function FoodMenu() {
       ],
     },
     {
-      description: "Arepas",
+      title: "Arepas",
+      description: "A cherished Venezuelan staple. Our arepas are made from scratch — crispy outside, soft inside — and filled generously with flavorful, fresh ingredients. Every arepa delivers a delicious taste of home.",
       section: [
         {
           name: "Peluda",
@@ -168,7 +173,8 @@ export function FoodMenu() {
       ],
     },
     {
-      description: "Club House",
+      title: "Club House",
+      description: "A gourmet take on a classic favorite. Our Club House sandwiches include layers of fresh ingredients, homemade sauces, and perfectly toasted bread. Abundant, comforting, and full of flavor.",
       section: [
         {
           name: "Club House",
@@ -209,7 +215,7 @@ export function FoodMenu() {
                               : "cursor-pointer transition-colors duration-300 group-hover:text-tertiary"
                           }
                         >
-                          <i className="text-xl">{menuSection.description}</i>
+                          <i className="text-xl">{menuSection.title}</i>
                         </button>
                         <span
                           className={
@@ -234,7 +240,7 @@ export function FoodMenu() {
                             : "cursor-pointer transition-colors duration-300 group-hover:text-tertiary"
                         }
                       >
-                        <i className="text-xl">{menuSection.description}</i>
+                        <i className="text-xl">{menuSection.title}</i>
                       </button>
                       <span
                         className={
@@ -249,6 +255,7 @@ export function FoodMenu() {
               })}
             </div>
             <div className="grid md:grid-cols-2 gap-y-3 my-10">
+              <span className="md:col-span-2 text-center mx-24 py-5">{menu[selectedSection].description}</span>
               {menu[selectedSection].section.map((item, idx) => (
                 <div
                   className="w-full grid grid-cols-1 md:grid-cols-3"
