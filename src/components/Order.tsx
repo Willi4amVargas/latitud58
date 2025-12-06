@@ -1,7 +1,5 @@
 import Logo from "@/logo.png";
-import {
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 export function Order() {
@@ -21,9 +19,13 @@ export function Order() {
         <h1 className="text-4xl font-bold">Ready to order?</h1>
         <h2 className="text-xl mt-2">Join us and take your order today!</h2>
         <Button asChild className="text-4xl cursor-pointer">
-          <DialogTrigger className="text-tertiary mt-5 px-16 py-10 bg-fourthary rounded-full hover:bg-fourthary/90 transition-colors">
+          <a
+            className="text-tertiary mt-5 px-16 py-10 bg-fourthary rounded-full hover:bg-fourthary/90 transition-colors"
+            target="_blank"
+            href="https://order.online/business/latitud-58-16165955"
+          >
             ORDER
-          </DialogTrigger>
+          </a>
         </Button>
       </div>
     </div>
