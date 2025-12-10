@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button";
 import type { Form } from "@/types/form";
 import { toast } from "react-toastify";
 
-const CLIENT_ID: string = import.meta.env.BUN_PUBLIC_CLIENT_ID;
-const DISCOVERY_DOC = import.meta.env.BUN_PUBLIC_DISCOVERY_DOC;
-const SCOPES = import.meta.env.BUN_PUBLIC_SCOPES;
+const CLIENT_ID: string = Bun.env.BUN_PUBLIC_CLIENT_ID;
+const DISCOVERY_DOC = Bun.env.BUN_PUBLIC_DISCOVERY_DOC;
+const SCOPES = Bun.env.BUN_PUBLIC_SCOPES;
 
 export function GmailAuth({
   data,
