@@ -19,42 +19,58 @@ interface Review {
 const sampleReviews: Review[] = [
   {
     id: 1,
-    author: "Emily K.",
+    author: "Natalia Cortés",
     rating: 5,
     comment:
-      "The Parrilla was phenomenal! Juicy grilled steak and chicken, delicious chorizo, and that touch of chimichurri was perfect. Fast service, great flavor. Definitely coming back for this Venezuelan grill!",
+      "The best Venezuelan food you will find it here. Excellent customer service. They really put so much love and good sazón in their food, they even make the bread from scratch! I’ll def come back ♥️",
     date: "2025",
   },
   {
     id: 2,
-    author: "Mark J.",
+    author: "Leandro Chuello",
     rating: 5,
     comment:
-      "I tried the SUPER MIXTA Burger and it was HUGE! Grilled chicken, beef, pork chop, egg... a true feast. Juicy and cooked just right. It’s the best street-style burger I’ve had.",
+      "Excelente atención muy buena la comida recomendado 200%. Ambiente familiar.",
     date: "2025",
   },
   {
     id: 3,
-    author: "Sarah P.",
+    author: "Daliana Stefania Castillo Pernia",
     rating: 5,
     comment:
-      "The Reina Pepiada Arepa is incredible! Perfectly toasted, and the chicken/avocado filling was fresh and creamy. A little taste of Venezuela! Fantastic comfort food experience.",
+      "Demasiado bueno este lugar lo recomiendo 100% no tarden en ir no se van arrepentir",
     date: "2025",
   },
   {
     id: 4,
-    author: "David L.",
+    author: "Alexis Delgado",
     rating: 5,
     comment:
-      "The Lomito Shawarma was awesome! Tender grilled steak, fresh veggies, and the garlic sauce brings it all together. Quick, satisfying, and very authentic. Highly recommend!",
+      "Espectacular ! 10 de 10 .. sabor .. calidad .. presentación .. ingredientes .. todo perfecto ! Gracias Latitud 58! ! COMÍ BRUTAL !",
     date: "2025",
   },
   {
     id: 5,
-    author: "Jessica R.",
+    author: "Dulcey Art",
     rating: 4,
     comment:
-      "Very satisfied with the food quality. The CAMPESINA Pizza was great! Love the mix of shredded meat, corn, and bell pepper. My only suggestion would be to offer a few more drink options. Great value for the price.",
+      "Tenía mucho tiempo buscando un lugar con el sabor de nuestro hogar (Venezuela) probé en muchos lugares, ninguno me convencía. Pero sin duda este ha sido el favorito de todos. Y planeo quedarme. Gracias por dejar en alto nuestra bandera con su gastronomía",
+    date: "2025",
+  },
+  {
+    id: 6,
+    author: "Alvin De Jesus",
+    rating: 5,
+    comment:
+      "Great food and better service!!! Food was delicious and the portions were more than plenty.",
+    date: "2025",
+  },
+  {
+    id: 7,
+    author: "Mahayana Ap. Rodrigues",
+    rating: 5,
+    comment:
+      "The snacks we received yesterday were very good.😋…",
     date: "2025",
   },
 ];

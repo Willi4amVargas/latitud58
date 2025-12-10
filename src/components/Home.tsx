@@ -3,6 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { products, type ProductSlide } from "@/models/products";
 import { Button } from "@/components/ui/button";
 import MenuPDF from "@/assets/menu.pdf";
+import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 export function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,6 +45,28 @@ export function Home() {
         }}
         className="w-full h-full bg-center bg-cover duration-700 ease-in-out transition-opacity"
       >
+        <div className="absolute right-0 flex justify-end z-50 ">
+          <div className="flex justify-center space-x-3 md:space-x-6 md:text-7xl text-4xl text-white mr-5 mt-30 md:mr-40">
+            <a
+              target="_blank"
+              href="https://www.instagram.com/latitud58_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+            >
+              <FaInstagram />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@latitud58?refer=creator_embed"
+            >
+              <FaTiktok />
+            </a>
+            <a
+              target="_blank"
+              href="https://wa.me/18542008599?text=Hello!%20I%20am%20ready%20to%20place%20an%20order."
+            >
+              <FaWhatsapp />
+            </a>
+          </div>
+        </div>
         <div className="absolute inset-0 bg-black/40 flex flex-col justify-center items-center text-white p-8">
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold drop-shadow-lg text-center mb-4">
             Latitud 58

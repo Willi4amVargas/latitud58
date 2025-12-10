@@ -2,7 +2,7 @@ import { FaMapMarkerAlt } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { IoIosChatboxes } from "react-icons/io";
 import { CiMail } from "react-icons/ci";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 export function Contact({
   open,

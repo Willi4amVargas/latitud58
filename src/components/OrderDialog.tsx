@@ -4,12 +4,13 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-} from "./ui/dialog";
-import { ShoppingBag } from "lucide-react";
+} from "@/components/ui/dialog";
+import { Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "react-toastify";
+import type { Form } from "@/types/form";
+import { GmailAuth } from "@/components/GmailAuth";
 
 export function OrderDialog({
   open,
@@ -18,14 +19,13 @@ export function OrderDialog({
   open: boolean;
   setOpen: (open: boolean) => void;
 }) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Form>({
     name: "",
     lastName: "",
     mobileNumber: "",
     email: "",
-    order: "",
+    message: "",
   });
-  const [buttonDisable, setButtonDisable] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,16 +35,7 @@ export function OrderDialog({
     }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setButtonDisable(true);
-
-    if (!formData.name || !formData.email || !formData.order) {
-      toast.error("Please fill in Name, Email, and Order details.");
-      setButtonDisable(false);
-      return;
-    }
-    console.log("Order Data Submitted:", formData);
+  const onSubmit = () => {
     toast.success("Your order request has been submitted!");
 
     setFormData({
@@ -52,32 +43,28 @@ export function OrderDialog({
       lastName: "",
       mobileNumber: "",
       email: "",
-      order: "",
+      message: "",
     });
     setOpen(!open);
-    setButtonDisable(false);
   };
 
   return (
     <DialogContent className="sm:max-w-lg space-y-4">
       <DialogHeader>
         <DialogTitle className="flex flex-col items-center justify-center text-center">
-          <ShoppingBag
-            className="h-12 w-12 text-secondary mb-3"
-            strokeWidth={1.5}
-          />
+          <Mail className="h-12 w-12 text-secondary mb-3" strokeWidth={1.5} />
           <span className="text-xl md:text-2xl font-extrabold text-gray-800 tracking-tight">
-            PLACE YOUR ORDER
+            CONTACT US
           </span>
         </DialogTitle>
       </DialogHeader>
 
       <DialogDescription className="text-center">
         Please fill out the form below and we will get back to you as soon as
-        possible.
+        possible to answer your questions.
       </DialogDescription>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="space-y-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           <Input
             name="name"
@@ -85,6 +72,7 @@ export function OrderDialog({
             value={formData.name}
             onChange={handleChange}
           />
+
           <Input
             name="lastName"
             placeholder="Last Name (Optional)"
@@ -96,7 +84,7 @@ export function OrderDialog({
         <Input
           type="number"
           name="mobileNumber"
-          placeholder="Mobile Number"
+          placeholder="Mobile Number (Optional)"
           value={formData.mobileNumber}
           onChange={handleChange}
         />
@@ -111,27 +99,21 @@ export function OrderDialog({
 
         <div>
           <label
-            htmlFor="order"
+            htmlFor="message"
             className="text-sm font-medium text-gray-700 mb-1 block"
           >
-            Your Order Details / Request
+            Your Message / Inquiry
           </label>
+
           <Textarea
-            name="order"
-            placeholder="E.g., I would like one Single Croqueta with bacon, a side of large fries, and one Parrilla for pickup at 7 PM."
-            value={formData.order}
+            name="message"
+            placeholder="E.g., I would like to inquire about your catering services for an event on August 15th."
+            value={formData.message}
             onChange={handleChange}
           />
         </div>
-
-        <Button
-          type="submit"
-          className="w-full text-tertiary"
-          disabled={buttonDisable}
-        >
-          Submit Order Request
-        </Button>
-      </form>
+        <GmailAuth data={formData} onSend={onSubmit} />
+      </div>
     </DialogContent>
   );
 }

@@ -24,8 +24,15 @@ jobs:
         run: bun install
 
       - name: Build static files
+        env:
+          BUN_PUBLIC_CLIENT_ID: ${{ secrets.BUN_PUBLIC_CLIENT_ID }} 
+          BUN_PUBLIC_API_KEY: ${{ secrets.BUN_PUBLIC_API_KEY }} 
+          BUN_PUBLIC_DISCOVERY_DOC: ${{ secrets.BUN_PUBLIC_DISCOVERY_DOC }} 
+          BUN_PUBLIC_SCOPES: ${{ secrets.BUN_PUBLIC_SCOPES }} 
         run: |
           echo "--- Starting Bun Build ---"
+          echo "Discovery Doc (para verificar): $BUN_PUBLIC_DISCOVERY_DOC"
+          echo "Scopes (para verificar): $BUN_PUBLIC_SCOPES"
           bun run build
         
       - name: Setup Pages
