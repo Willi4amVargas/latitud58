@@ -3,9 +3,15 @@ import { Button } from "@/components/ui/button";
 import type { Form } from "@/types/form";
 import { toast } from "react-toastify";
 
-const CLIENT_ID: string = Bun.env.BUN_PUBLIC_CLIENT_ID;
-const DISCOVERY_DOC = Bun.env.BUN_PUBLIC_DISCOVERY_DOC;
-const SCOPES = Bun.env.BUN_PUBLIC_SCOPES;
+const CLIENT_ID: string =
+  process.env.BUN_PUBLIC_CLIENT_ID ||
+  "661847183866-i5nu2ummfd03viv1fnul0ctmhs5rrehk.apps.googleusercontent.com";
+const DISCOVERY_DOC =
+  process.env.BUN_PUBLIC_DISCOVERY_DOC ||
+  "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest";
+const SCOPES =
+  process.env.BUN_PUBLIC_SCOPES ||
+  "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send";
 
 export function GmailAuth({
   data,
