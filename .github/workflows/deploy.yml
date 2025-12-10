@@ -25,10 +25,10 @@ jobs:
 
       - name: Build static files
         env:
-          BUN_PUBLIC_CLIENT_ID: ${{ secrets.BUN_PUBLIC_CLIENT_ID }} 
-          BUN_PUBLIC_API_KEY: ${{ secrets.BUN_PUBLIC_API_KEY }} 
-          BUN_PUBLIC_DISCOVERY_DOC: ${{ secrets.BUN_PUBLIC_DISCOVERY_DOC }} 
-          BUN_PUBLIC_SCOPES: ${{ secrets.BUN_PUBLIC_SCOPES }} 
+          BUN_PUBLIC_CLIENT_ID: "661847183866-i5nu2ummfd03viv1fnul0ctmhs5rrehk.apps.googleusercontent.com" 
+          BUN_PUBLIC_API_KEY: "Jeje nose"
+          BUN_PUBLIC_DISCOVERY_DOC: "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest"
+          BUN_PUBLIC_SCOPES: "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send"
         run: |
           echo "--- Starting Bun Build ---"
           echo "Discovery Doc (para verificar): $BUN_PUBLIC_DISCOVERY_DOC"
