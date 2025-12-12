@@ -11,7 +11,7 @@ const DISCOVERY_DOC =
   "https://www.googleapis.com/discovery/v1/apis/gmail/v1/rest";
 const SCOPES =
   // process.env.BUN_PUBLIC_SCOPES ||
-  "https://www.googleapis.com/auth/gmail.readonly https://www.googleapis.com/auth/gmail.send";
+  "https://www.googleapis.com/auth/gmail.send";
 
 export function GmailAuth({
   data,

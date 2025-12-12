@@ -3,6 +3,7 @@ import Logo from "@/logo.png";
 import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router";
 
 export function Footer() {
   return (
@@ -45,9 +46,27 @@ export function Footer() {
                 <FaWhatsapp />
               </a>
             </div>
-            <span className="text-center mt-5 text-xs md:text-sm">
-              © 2025 Latitud 58. All rights reserved.
-            </span>
+            <div className="flex flex-col text-center">
+              <span className="text-center mt-5 text-xs md:text-sm">
+                © 2025 Latitud 58. All rights reserved.
+              </span>
+              <div>
+                <Link
+                  to={"/privacy_policy"}
+                  className="border-b-2 border-black hover:border-black/50"
+                >
+                  Privacy policy
+                </Link>
+              </div>
+              <div>
+                <Link
+                  to={"/terms_and_conditions"}
+                  className="border-b-2 border-black hover:border-black/50"
+                >
+                  Terms and conditions
+                </Link>
+              </div>
+            </div>
           </p>
         </div>
       </footer>

@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export function TermsAndConditions() {
   return (
     <div className="w-1/2 flex flex-col mx-auto prose text-center">
@@ -308,6 +310,7 @@ export function TermsAndConditions() {
           <p>By phone: +1 (854) 200-8599</p>
         </li>
       </ul>
+      <Link to={"/"} className="bg-red-400 rounded text-white mb-5 py-2">Go Home</Link>
     </div>
   );
 }
