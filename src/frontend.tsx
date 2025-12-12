@@ -7,12 +7,23 @@
 
 import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
-import { App } from "./App";
+import { App } from "@/App";
+import { BrowserRouter, Route, Routes } from "react-router";
+import { PrivacyPolicy } from "@/components/PrivacyPolicy";
+import { TermsAndConditions } from "@/components/TermsAndConditions";
 
 const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route index element={<App />} />
+          <Route path="privacy_policy" element={<PrivacyPolicy />} />
+          <Route path="terms_and_conditions" element={<TermsAndConditions />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </StrictMode>
 );
 

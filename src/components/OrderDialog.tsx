@@ -36,7 +36,7 @@ export function OrderDialog({
   };
 
   const onSubmit = () => {
-    toast.success("Your order request has been submitted!");
+    toast.success("Your message has been submitted!");
 
     setFormData({
       name: "",
