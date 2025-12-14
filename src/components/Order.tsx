@@ -24,7 +24,16 @@ export function Order() {
             target="_blank"
             href="https://order.online/business/latitud-58-16165955"
           >
-            ORDER
+            <div className="flex text-center">
+              <span className="">ORDER</span>
+              <div className="bg-white rounded-md p-1 ml-5">
+                <img
+                  className="h-10 mx-auto"
+                  src="https://cdn.sanity.io/images/rs91tm40/production/38474eb728adbe5b3dd923d84253016aa706e22a-2000x971.png"
+                  alt=""
+                />
+              </div>
+            </div>
           </a>
         </Button>
       </div>
