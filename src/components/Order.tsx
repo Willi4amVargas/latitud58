@@ -25,7 +25,7 @@ export function Order() {
             href="https://order.online/business/latitud-58-16165955"
           >
             <div className="flex text-center">
-              <span className="">ORDER</span>
+              <span className="my-auto">ORDER</span>
               <div className="bg-white rounded-md p-1 ml-5">
                 <img
                   className="h-10 mx-auto"
