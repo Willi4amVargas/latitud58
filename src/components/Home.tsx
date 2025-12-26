@@ -7,9 +7,21 @@ import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 
 export function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const currentSlide: ProductSlide = products[currentIndex];
 
+  var body = document.body,
+    html = document.documentElement;
+
+  // this is for get the total size of page
+  var height = Math.max(
+    body.scrollHeight,
+    body.offsetHeight,
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight
+  );
   useEffect(() => {
     products.forEach((slide) => {
       if (slide.url) {
@@ -37,6 +49,27 @@ export function Home() {
     return () => clearInterval(slideInterval);
   }, [nextSlide]);
 
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (window.scrollY > height - 1000) {
+      setIsScrolled(false);
+    }
+  }, [window.scrollY]);
+
   return (
     <div className="h-screen w-full relative group overflow-hidden">
       <div
@@ -45,8 +78,20 @@ export function Home() {
         }}
         className="w-full h-full bg-center bg-cover duration-700 ease-in-out transition-opacity"
       >
-        <div className="absolute right-0 flex justify-end z-50 ">
-          <div className="flex justify-center space-x-3 md:space-x-6 md:text-7xl text-4xl text-white mr-5 mt-30 md:mr-40">
+        <div
+          className={`transition-colors duration-300 ease-in-out ${
+            isScrolled
+              ? "fixed bottom-5 right-2 z-50"
+              : "absolute right-0 flex justify-end z-50"
+          }`}
+        >
+          <div
+            className={`flex justify-center space-x-3 md:space-x-6 ${
+              isScrolled
+                ? "text-black md:text-5xl text-3xl"
+                : "text-white md:text-7xl text-4xl"
+            }  mr-5 mt-30 md:mr-40`}
+          >
             <a
               target="_blank"
               href="https://www.instagram.com/latitud58_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="

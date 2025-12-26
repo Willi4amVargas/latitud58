@@ -35,8 +35,8 @@ export function Menu() {
   `;
 
   const logoClasses = `
-    transition-all duration-300 w-12
-    ${isScrolled ? "md:w-16 my-0" : "md:w-18 my-1"}
+    transition-all duration-300 w-20
+    ${isScrolled ? "md:w-20 my-0" : "md:w-36 my-1"}
   `;
 
   return (
@@ -62,14 +62,14 @@ export function Menu() {
             <a href="#reviews">REVIEWS</a>
           </li>
           <li className="mx-5">
-            <a href="#contact">CONTACT</a>
+            <a href="#order">ORDER</a>
           </li>
         </ul>
         <div className="md:hidden flex items-center justify-center">
           <a href="/">
             <img src={logoImage} alt="logo latitud58" className={logoClasses} />
           </a>
-          <div className="absolute left-8 top-3">
+          <div className="absolute left-8 top-7">
             <Drawer
               direction="left"
               open={menuDesplegable}

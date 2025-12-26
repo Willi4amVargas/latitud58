@@ -21,8 +21,8 @@ export function App() {
         <Menu />
         <Home />
         <AboutUs />
-        <FoodMenu />
         <Order />
+        <FoodMenu />
         <Reviews />
         <Contact open={dialogOpen} setOpen={setDialogOpen} />
         <Footer />

@@ -102,7 +102,7 @@ export function FoodMenu() {
     },
     {
       title: "Shawarma",
-      description: "Inspired by Venezuelan street food, our chaguarmas are loaded with marinated meats, fresh veggies, and house-made sauces. Wrapped tightly for the perfect bite every time — flavorful, juicy, and unforgettable.",
+      description: "Inspired by Venezuelan street food, our chaguarmas are loaded with marinated meats, fresh veggies, and house-made sauces. Wrapped tightly for the perfect bite every time flavorful, juicy, and unforgettable.",
       section: [
         {
           name: "CHICKEN",
@@ -215,7 +215,7 @@ export function FoodMenu() {
                               : "cursor-pointer transition-colors duration-300 group-hover:text-tertiary"
                           }
                         >
-                          <i className="text-xl">{menuSection.title}</i>
+                          <i className="text-2xl font-bold">{menuSection.title}</i>
                         </button>
                         <span
                           className={
@@ -240,7 +240,7 @@ export function FoodMenu() {
                             : "cursor-pointer transition-colors duration-300 group-hover:text-tertiary"
                         }
                       >
-                        <i className="text-xl">{menuSection.title}</i>
+                        <i className="text-2xl font-bold">{menuSection.title}</i>
                       </button>
                       <span
                         className={
@@ -255,7 +255,7 @@ export function FoodMenu() {
               })}
             </div>
             <div className="grid md:grid-cols-2 gap-y-3 my-10">
-              <span className="md:col-span-2 text-center mx-24 py-5">{menu[selectedSection].description}</span>
+              <span className="md:col-span-2 text-center md:mx-24 py-5 md:text-xl">{menu[selectedSection].description}</span>
               {menu[selectedSection].section.map((item, idx) => (
                 <div
                   className="w-full grid grid-cols-1 md:grid-cols-3"
@@ -269,8 +269,8 @@ export function FoodMenu() {
                     />
                   </div>
                   <section className="col-span-2 prose text-sm/6 text-center md:text-left mx-10">
-                    <h1 className="text-secondary">{item.name}</h1>
-                    <p className="">{item.description}</p>
+                    <h1 className="text-red-500">{item.name}</h1>
+                    <h3 className="text-bold">{item.description}</h3>
                   </section>
                 </div>
               ))}
