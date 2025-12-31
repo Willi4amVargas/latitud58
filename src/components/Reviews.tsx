@@ -1,4 +1,3 @@
-import * as React from "react";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import {
   Carousel,
@@ -8,72 +7,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-
-interface Review {
-  id: number;
-  author: string;
-  rating: number;
-  comment: string;
-  date: string;
-}
-const sampleReviews: Review[] = [
-  {
-    id: 1,
-    author: "Natalia Cortés",
-    rating: 5,
-    comment:
-      "The best Venezuelan food you will find it here. Excellent customer service. They really put so much love and good sazón in their food, they even make the bread from scratch! I’ll def come back ♥️",
-    date: "2025",
-  },
-  {
-    id: 2,
-    author: "Leandro Chuello",
-    rating: 5,
-    comment:
-      "Excelente atención muy buena la comida recomendado 200%. Ambiente familiar.",
-    date: "2025",
-  },
-  {
-    id: 3,
-    author: "Daliana Stefania Castillo Pernia",
-    rating: 5,
-    comment:
-      "Demasiado bueno este lugar lo recomiendo 100% no tarden en ir no se van arrepentir",
-    date: "2025",
-  },
-  {
-    id: 4,
-    author: "Alexis Delgado",
-    rating: 5,
-    comment:
-      "Espectacular ! 10 de 10 .. sabor .. calidad .. presentación .. ingredientes .. todo perfecto ! Gracias Latitud 58! ! COMÍ BRUTAL !",
-    date: "2025",
-  },
-  {
-    id: 5,
-    author: "Dulcey Art",
-    rating: 4,
-    comment:
-      "Tenía mucho tiempo buscando un lugar con el sabor de nuestro hogar (Venezuela) probé en muchos lugares, ninguno me convencía. Pero sin duda este ha sido el favorito de todos. Y planeo quedarme. Gracias por dejar en alto nuestra bandera con su gastronomía",
-    date: "2025",
-  },
-  {
-    id: 6,
-    author: "Alvin De Jesus",
-    rating: 5,
-    comment:
-      "Great food and better service!!! Food was delicious and the portions were more than plenty.",
-    date: "2025",
-  },
-  {
-    id: 7,
-    author: "Mahayana Ap. Rodrigues",
-    rating: 5,
-    comment:
-      "The snacks we received yesterday were very good.😋…",
-    date: "2025",
-  },
-];
+import { useEffect, useState } from "react";
 
 const RatingStars: React.FC<{ rating: number }> = ({ rating }) => {
   return (
@@ -91,6 +25,47 @@ const RatingStars: React.FC<{ rating: number }> = ({ rating }) => {
 };
 
 export function Reviews() {
+  const [reviews, setReviews] = useState<google.maps.places.Review[]>([]);
+
+  const getReviews = async () => {
+    if (!window.google || !window.google.maps.places) {
+      console.error("La librería de Places no está cargada");
+      return;
+    }
+
+    try {
+      const place = new window.google.maps.places.Place({
+        id: "ChIJVeXu5y9n_ogRJK8btuYOG8I",
+      });
+
+      await place.fetchFields({
+        fields: ["reviews", "rating"],
+      });
+
+      if (place.reviews) {
+        setReviews(place.reviews);
+      } else {
+        console.log("No se encontraron reseñas para este lugar.");
+      }
+    } catch (error) {
+      console.error("Error al obtener reseñas:", error);
+    }
+  };
+
+  useEffect(() => {
+
+    const checkAndFetch = () => {
+      if (window.google && window.google.maps.places) {
+        getReviews();
+      } else {
+        // Si no está lista, reintentamos en 500ms (solo si es necesario)
+        setTimeout(checkAndFetch, 500);
+      }
+    };
+
+    checkAndFetch();
+  }, []);
+
   return (
     <section id="reviews" className="w-full py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,9 +79,9 @@ export function Reviews() {
           className="w-full relative"
         >
           <CarouselContent className="-ml-4 md:-ml-8">
-            {sampleReviews.map((review) => (
+            {reviews.map((review, index) => (
               <CarouselItem
-                key={review.id}
+                key={review.authorAttribution?.displayName + index.toString()}
                 className="pl-4 md:pl-8 basis-full sm:basis-1/2 lg:basis-1/3"
               >
                 <div className="p-1">
@@ -115,14 +90,16 @@ export function Reviews() {
                       <div>
                         <RatingStars rating={review.rating} />
                         <p className="mt-4   italic line-clamp-5">
-                          "{review.comment}"
+                          "{review.text}"
                         </p>
                       </div>
                       <div className="mt-4 pt-4 border-t ">
                         <p className="text-lg font-semibold ">
-                          {review.author}
+                          {review.authorAttribution?.displayName}
                         </p>
-                        <p className="text-sm ">{review.date}</p>
+                        <p className="text-sm ">
+                          {review.publishTime.toDateString()}
+                        </p>
                       </div>
                     </CardContent>
                   </Card>
