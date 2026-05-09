@@ -1,5 +1,5 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useMemo } from "react";
 import { products, type ProductSlide } from "@/models/products";
 import { Button } from "@/components/ui/button";
 import MenuPDF from "@/assets/menu.pdf";
@@ -8,70 +8,82 @@ import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa";
 export function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [pageHeight, setPageHeight] = useState(0);
 
-  const currentSlide: ProductSlide = products[currentIndex];
+  // Randomize carousel images on initial mount (Task 3)
+  const randomizedProducts = useMemo(() => {
+    return [...products].sort(() => Math.random() - 0.5);
+  }, []);
 
-  var body = document.body,
-    html = document.documentElement;
+  const currentSlide: ProductSlide = randomizedProducts[currentIndex];
 
-  // this is for get the total size of page
-  var height = Math.max(
-    body.scrollHeight,
-    body.offsetHeight,
-    html.clientHeight,
-    html.scrollHeight,
-    html.offsetHeight
-  );
   useEffect(() => {
-    products.forEach((slide) => {
+    // Calculate height once on mount and on resize, instead of every render (Performance Audit fix)
+    const calculateHeight = () => {
+      const body = document.body;
+      const html = document.documentElement;
+      const height = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
+      setPageHeight(height);
+    };
+
+    calculateHeight();
+    window.addEventListener("resize", calculateHeight);
+    return () => window.removeEventListener("resize", calculateHeight);
+  }, []);
+
+  useEffect(() => {
+    randomizedProducts.forEach((slide) => {
       if (slide.url) {
         const img = new Image();
         img.src = slide.url;
       }
     });
-  }, []);
+  }, [randomizedProducts]);
 
   const prevSlide = useCallback(() => {
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? products.length - 1 : currentIndex - 1;
+    const newIndex = isFirstSlide ? randomizedProducts.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-  }, [currentIndex, products.length]);
+  }, [currentIndex, randomizedProducts.length]);
 
   const nextSlide = useCallback(() => {
-    const isLastSlide = currentIndex === products.length - 1;
+    const isLastSlide = currentIndex === randomizedProducts.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-  }, [currentIndex, products.length]);
+  }, [currentIndex, randomizedProducts.length]);
 
   useEffect(() => {
     const slideInterval = setInterval(nextSlide, 5000);
-
     return () => clearInterval(slideInterval);
   }, [nextSlide]);
 
-  const handleScroll = () => {
+  const handleScroll = useCallback(() => {
     if (window.scrollY > 50) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
     }
-  };
+
+    if (pageHeight > 0 && window.scrollY > pageHeight - 1000) {
+      setIsScrolled(false);
+    }
+  }, [pageHeight]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
-
-  useEffect(() => {
-    if (window.scrollY > height - 1000) {
-      setIsScrolled(false);
-    }
-  }, [window.scrollY]);
+  }, [handleScroll]);
 
   return (
-    <div className="h-screen w-full relative group overflow-hidden">
+    <section aria-label="Home Carousel" className="h-screen w-full relative group overflow-hidden">
       <div
         style={{
           backgroundImage: `url(${currentSlide.url})`,
@@ -94,18 +106,24 @@ export function Home() {
           >
             <a
               target="_blank"
+              aria-label="Instagram"
+              rel="noopener noreferrer"
               href="https://www.instagram.com/latitud58_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             >
               <FaInstagram />
             </a>
             <a
               target="_blank"
+              aria-label="TikTok"
+              rel="noopener noreferrer"
               href="https://www.tiktok.com/@latitud58?refer=creator_embed"
             >
               <FaTiktok />
             </a>
             <a
               target="_blank"
+              aria-label="WhatsApp"
+              rel="noopener noreferrer"
               href="https://wa.me/18542008599?text=Hello!%20I%20am%20ready%20to%20place%20an%20order."
             >
               <FaWhatsapp />
@@ -120,14 +138,14 @@ export function Home() {
             {currentSlide.caption}
           </p>
           <Button asChild className="mt-5">
-            <a href={MenuPDF} target="_blank">
+            <a href={MenuPDF} target="_blank" rel="noopener noreferrer">
               See Menu
             </a>
           </Button>
         </div>
       </div>
       <div className="hidden group-hover:block absolute top-[50%] -translate-y-1/2 left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer transition">
-        <ChevronLeft size={30} onClick={prevSlide} />
+        <ChevronLeft size={30} onClick={prevSlide} aria-label="Previous Slide" />
       </div>
       <div className="hidden group-hover:block absolute top-[50%] -translate-y-1/2 right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer transition">
         <ChevronRight
@@ -135,22 +153,24 @@ export function Home() {
           onClick={() => {
             nextSlide();
           }}
+          aria-label="Next Slide"
         />
       </div>
       <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
-        {products.map((slide, slideIndex) => (
-          <div
+        {randomizedProducts.map((slide, slideIndex) => (
+          <button
             key={slideIndex}
             onClick={() => setCurrentIndex(slideIndex)}
+            aria-label={`Go to slide ${slideIndex + 1}`}
             className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 shadow-md ${
               currentIndex === slideIndex
                 ? "bg-white scale-125"
                 : "bg-gray-400 opacity-50"
             }`}
             title={slide.caption}
-          ></div>
+          ></button>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

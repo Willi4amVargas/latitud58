@@ -11,19 +11,22 @@ import { App } from "@/App";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { PrivacyPolicy } from "@/components/PrivacyPolicy";
 import { TermsAndConditions } from "@/components/TermsAndConditions";
+import { HelmetProvider } from "react-helmet-async";
 
 const elem = document.getElementById("root")!;
 const app = (
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/">
-          <Route index element={<App />} />
-          <Route path="privacy_policy" element={<PrivacyPolicy />} />
-          <Route path="terms_and_conditions" element={<TermsAndConditions />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={<App />} />
+            <Route path="privacy_policy" element={<PrivacyPolicy />} />
+            <Route path="terms_and_conditions" element={<TermsAndConditions />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>
 );
 
