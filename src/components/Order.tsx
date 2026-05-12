@@ -6,7 +6,7 @@ export function Order() {
   return (
     <section
       id="order"
-      className="relative w-full overflow-hidden bg-slate-50 py-16 md:py-24"
+      className="relative w-full overflow-hidden bg-zinc-50 py-16 md:py-24"
     >
       {/* Background Pattern */}
       <div
@@ -65,7 +65,7 @@ export function Order() {
               </Button>
 
               <p className="mt-4 text-red-600 font-bold text-sm md:text-base flex items-center justify-center gap-2">
-                <Star className="w-4 h-4 fill-red-600" />
+                <Star className="size-4 fill-red-600" />
                 Same food · Better price | La misma comida · Mejor precio
               </p>
             </div>

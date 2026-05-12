@@ -15,7 +15,7 @@ const RatingStars: React.FC<{ rating: number }> = ({ rating }) => {
       {[...Array(5)].map((_, index) => (
         <Star
           key={index}
-          className={`w-4 h-4 transition-colors duration-150 ${
+          className={`size-4 transition-colors duration-150 ${
             index < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
           }`}
         />
@@ -53,17 +53,22 @@ export function Reviews() {
   };
 
   useEffect(() => {
+    let timeoutId: Timer | null = null;
 
     const checkAndFetch = () => {
       if (window.google && window.google.maps.places) {
         getReviews();
       } else {
         // Si no está lista, reintentamos en 500ms (solo si es necesario)
-        setTimeout(checkAndFetch, 500);
+        timeoutId = setTimeout(checkAndFetch, 500);
       }
     };
 
     checkAndFetch();
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   return (
@@ -109,11 +114,11 @@ export function Reviews() {
           </CarouselContent>
 
           <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 transform  z-10 hidden sm:flex">
-            <ChevronLeft className="h-6 w-6 " />
+            <ChevronLeft className="size-6 " />
           </CarouselPrevious>
 
           <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 transform  z-10 hidden sm:flex">
-            <ChevronRight className="h-6 w-6 " />
+            <ChevronRight className="size-6 " />
           </CarouselNext>
         </Carousel>
       </div>

@@ -29,7 +29,7 @@ export function AboutUs() {
           <div className="flex items-center justify-center text-center prose">
             <div className="flex flex-col justify-center items-center w-full">
               <div>
-                <img src={Logo} className="w-32" />
+                <img src={Logo} className="w-32" alt="Latitud58 Logo" />
               </div>
               <h1 className="text-secondary mb-0">About us</h1>
               <h2 className="text-tertiary">

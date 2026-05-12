@@ -51,12 +51,17 @@ export function GmailAuth({
   };
 
   useEffect(() => {
+    let timeoutId: Timer | null = null;
     if (window.gapi) {
       window.gapi.load("client", initializeGapiClient);
     } else {
       console.warn("gapi aún no disponible. Esperando...");
-      setTimeout(() => window.gapi.load("client", initializeGapiClient), 500);
+      timeoutId = setTimeout(() => window.gapi.load("client", initializeGapiClient), 500);
     }
+
+    return () => {
+      if (timeoutId) clearTimeout(timeoutId);
+    };
   }, []);
 
   const handleAuthClick = () => {
